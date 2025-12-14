@@ -1,85 +1,68 @@
-import Link from "next/link";
+import { cookies } from "next/headers";
+import UnlockProjects from "./UnlockProjects";
+import LockButton from "./LockButton";
 
-type Project = {
-  title: string;
-  description: string;
-  tags: string[];
-  link?: string;
-};
+export default async function ProjectsPage() {
+  const cookieStore = await cookies();
+  const access = cookieStore.get("projects_access")?.value === "1";
 
-const PROJECTS: Project[] = [
-  {
-    title: "DCF Valuation – Datalogic",
-    description:
-      "Full discounted cash flow valuation with scenario analysis, WACC estimation and sensitivity tables.",
-    tags: ["Valuation", "DCF", "Excel"],
-    link: "/DCF_Datalogic.pdf",
-  },
-  {
-    title: "Leverage Effect nel Mercato Azionario - Il caso ISP",
-    description:
-      "Quantitative analysis using financial datasets, regression models and interpretation of results.",
-    tags: ["Research", "Econometrics", "Python"],
-    link: "/LeverageEffectISP.pdf",
-  },
-];
+  if (!access) {
+    return (
+      <main>
+        <div className="w-full max-w-6xl mx-auto px-6">
+          <UnlockProjects />
+        </div>
+      </main>
+    );
+  }
 
-export default function ProjectsPage() {
+  const PROJECTS = [
+    {
+      title: "DCF Valuation – Industrial Company",
+      desc: "Full DCF with WACC, scenarios and sensitivity tables.",
+      tags: ["Valuation", "DCF", "Excel"],
+    },
+    {
+      title: "ALM & Treasury Analysis – Banking",
+      desc: "Balance sheet structure, liquidity and funding analysis.",
+      tags: ["ALM", "Banking", "Treasury"],
+    },
+  ];
+
   return (
     <main>
       <div className="w-full max-w-6xl mx-auto px-6">
-        {/* Header */}
         <section className="mt-12 max-w-2xl">
           <h1 className="title-serif text-lg font-semibold tracking-tight text-slate-900">
-            Projects</h1>
-          <p className="mt-4 text-sm text-neutral-700">
-            A selection of academic and practical projects focused on finance,
-            valuation and data-driven analysis.
+            Projects
+          </h1>
+          <p className="mt-4 text-sm text-slate-700">
+            Selected projects (restricted access).
           </p>
+
+          <LockButton />
         </section>
 
-        {/* Project list */}
         <section className="mt-14 space-y-10">
-          {PROJECTS.map((project, idx) => (
-            <div
-              key={idx}
-              className="border-b pb-8"
-            >
-              <h2 className="text-sm font-medium">
-                {project.title}
-              </h2>
-
-              <p className="mt-3 max-w-3xl text-sm text-neutral-700 leading-relaxed">
-                {project.description}
+          {PROJECTS.map((p) => (
+            <div key={p.title} className="border-b pb-8">
+              <h2 className="text-sm font-medium">{p.title}</h2>
+              <p className="mt-3 max-w-3xl text-sm text-slate-700 leading-relaxed">
+                {p.desc}
               </p>
-
               <div className="mt-4 flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
+                {p.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border px-3 py-1 text-[11px] text-neutral-600"
+                    className="rounded-full border border-slate-200 px-3 py-1 text-[11px] text-slate-600"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
-
-              {project.link && (
-                <Link
-                  href={project.link}
-                  className="mt-4 inline-block text-xs underline text-neutral-700"
-                >
-                  View details →
-                </Link>
-              )}
             </div>
           ))}
         </section>
-
-        {/* Footer */}
-        <footer className="mt-20 border-t pt-6 text-[11px] text-neutral-500">
-          © {new Date().getFullYear()} Roberto Farenga
-        </footer>
       </div>
     </main>
   );
