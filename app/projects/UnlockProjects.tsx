@@ -14,6 +14,14 @@ const PROJECTS = [
     tags: ["ALM", "Banking", "Treasury"],
   },
 ];
+const FILES = [
+  {
+    title: "Leverage Effect – ISP",
+    file: "/projects/LeverageEffectISP.pdf",
+    meta: "PDF",
+  },
+  // aggiungi altri file qui
+];
 
 export default function UnlockProjects() {
   const [code, setCode] = useState("");
@@ -43,39 +51,79 @@ export default function UnlockProjects() {
   }
 
   if (unlocked) {
-    return (
-      <section className="mt-12 max-w-3xl">
-        <h1 className="title-serif text-lg font-semibold tracking-tight text-slate-900">
-          Projects
-        </h1>
+  return (
+    <section className="mt-12 max-w-3xl">
+      <h1 className="title-serif text-lg font-semibold tracking-tight text-slate-900">
+        Projects
+      </h1>
 
-        <p className="mt-4 text-sm text-slate-700">
-          Selected projects (restricted access).
-        </p>
+      <p className="mt-4 text-sm text-slate-700">
+        Selected projects (restricted access).
+      </p>
 
-        <section className="mt-10 space-y-10">
-          {PROJECTS.map((p) => (
-            <div key={p.title} className="border-b pb-8">
-              <h2 className="text-sm font-medium">{p.title}</h2>
-              <p className="mt-3 text-sm text-slate-700 leading-relaxed">
-                {p.desc}
-              </p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {p.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-slate-200 px-3 py-1 text-[11px] text-slate-600"
-                  >
-                    {tag}
-                  </span>
-                ))}
+      {/* Projects list */}
+      <section className="mt-10 space-y-10">
+        {PROJECTS.map((p) => (
+          <div key={p.title} className="border-b pb-8">
+            <h2 className="text-sm font-medium text-slate-900">
+              {p.title}
+            </h2>
+
+            <p className="mt-3 text-sm text-slate-700 leading-relaxed">
+              {p.desc}
+            </p>
+
+            <div className="mt-4 flex flex-wrap gap-2">
+              {p.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-slate-200 px-3 py-1 text-[11px] text-slate-600"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
+
+      {/* Files section */}
+      <section className="mt-14">
+        <h2 className="text-xs font-semibold tracking-wide text-slate-900">
+          Files
+        </h2>
+
+        <div className="mt-4 divide-y divide-slate-200 rounded-2xl border border-slate-200">
+          {FILES.map((f) => (
+            <div
+              key={f.file}
+              className="flex items-center justify-between px-4 py-3"
+            >
+              <div>
+                <p className="text-sm font-medium text-slate-900">
+                  {f.title}
+                </p>
+                <p className="mt-1 text-xs text-slate-600">
+                  {f.meta}
+                </p>
               </div>
+
+              <a
+                href={f.file}
+                target="_blank"
+                rel="noreferrer"
+                className="text-xs underline text-slate-700 hover:text-slate-900"
+              >
+                View / Download
+              </a>
             </div>
           ))}
-        </section>
+        </div>
       </section>
-    );
-  }
+    </section>
+  );
+}
+
 
   return (
     <section className="mt-20 max-w-xl">
