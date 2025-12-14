@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const PROJECTS = [
   {
-    title: "DCF Valuation – Industrial Company",
+    title: "DCF Valuation – Datalogic S.p.A.",
     desc: "Full DCF with WACC, scenarios and sensitivity tables.",
     tags: ["Valuation", "DCF", "Excel"],
     file: "/DCF_Datalogic.pdf",
