@@ -57,12 +57,7 @@ export default function Home() {
             >
               Projects
             </Link>
-            <Link
-              href="/research"
-              className="rounded-2xl border border-slate-200 px-4 py-2 text-xs text-slate-900 hover:border-slate-300 hover:bg-slate-50"
-            >
-              Research
-            </Link>
+            
           </div>
         </section>
 
@@ -83,20 +78,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="rounded-2xl border border-slate-200 p-6 transition-colors hover:border-slate-300">
-            <p className="text-[11px] tracking-wide font-semibold text-slate-900">
-              RESEARCH
-            </p>
-            <p className="mt-3 text-sm text-slate-700 leading-relaxed">
-              Notes, summaries and downloadable PDFs.
-            </p>
-            <Link
-              href="/research"
-              className="mt-4 inline-block text-xs underline text-slate-700 hover:text-slate-900"
-            >
-              View →
-            </Link>
-          </div>
+          
         </section>
 
         {/* Footer */}
