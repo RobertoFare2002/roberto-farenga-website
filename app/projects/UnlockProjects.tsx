@@ -7,21 +7,18 @@ const PROJECTS = [
     title: "DCF Valuation – Industrial Company",
     desc: "Full DCF with WACC, scenarios and sensitivity tables.",
     tags: ["Valuation", "DCF", "Excel"],
+    file: "/DCF_Datalogic.pdf",
+    fileLabel: "View / Download",
   },
   {
     title: "ALM & Treasury Analysis – Banking",
     desc: "Balance sheet structure, liquidity and funding analysis.",
     tags: ["ALM", "Banking", "Treasury"],
+    file: "/LeverageEffectISP.pdf",
+    fileLabel: "View / Download",
   },
 ];
-const FILES = [
-  {
-    title: "Leverage Effect – ISP",
-    file: "/projects/LeverageEffectISP.pdf",
-    meta: "PDF",
-  },
-  // aggiungi altri file qui
-];
+
 
 export default function UnlockProjects() {
   const [code, setCode] = useState("");
@@ -61,13 +58,10 @@ export default function UnlockProjects() {
         Selected projects (restricted access).
       </p>
 
-      {/* Projects list */}
       <section className="mt-10 space-y-10">
         {PROJECTS.map((p) => (
           <div key={p.title} className="border-b pb-8">
-            <h2 className="text-sm font-medium text-slate-900">
-              {p.title}
-            </h2>
+            <h2 className="text-sm font-medium text-slate-900">{p.title}</h2>
 
             <p className="mt-3 text-sm text-slate-700 leading-relaxed">
               {p.desc}
@@ -83,46 +77,27 @@ export default function UnlockProjects() {
                 </span>
               ))}
             </div>
+
+            {/* ✅ Link sotto al progetto */}
+            {p.file && (
+              <div className="mt-5">
+                <a
+                  href={p.file}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs underline text-slate-700 hover:text-slate-900"
+                >
+                  {p.fileLabel ?? "View / Download"} →
+                </a>
+              </div>
+            )}
           </div>
         ))}
-      </section>
-
-      {/* Files section */}
-      <section className="mt-14">
-        <h2 className="text-xs font-semibold tracking-wide text-slate-900">
-          Files
-        </h2>
-
-        <div className="mt-4 divide-y divide-slate-200 rounded-2xl border border-slate-200">
-          {FILES.map((f) => (
-            <div
-              key={f.file}
-              className="flex items-center justify-between px-4 py-3"
-            >
-              <div>
-                <p className="text-sm font-medium text-slate-900">
-                  {f.title}
-                </p>
-                <p className="mt-1 text-xs text-slate-600">
-                  {f.meta}
-                </p>
-              </div>
-
-              <a
-                href={f.file}
-                target="_blank"
-                rel="noreferrer"
-                className="text-xs underline text-slate-700 hover:text-slate-900"
-              >
-                View / Download
-              </a>
-            </div>
-          ))}
-        </div>
       </section>
     </section>
   );
 }
+
 
 
   return (
