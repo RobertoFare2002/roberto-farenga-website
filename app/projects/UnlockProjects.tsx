@@ -11,12 +11,27 @@ const PROJECTS = [
     fileLabel: "View / Download",
   },
   {
+    title: "L’Evoluzione del Funding Bancario in Italia",
+    desc: "Bachelor thesis analysing the evolution of bank funding structures in Italy, with focus on wholesale funding, deposits, regulatory changes and post-crisis dynamics.",
+    tags: ["Banking", "Funding", "Regulation"],
+    file: "/TesiFunding.pdf",
+    fileLabel: "View thesis",
+  },
+  {
     title: "ALM & Treasury Analysis – Banking",
     desc: "Balance sheet structure, liquidity and funding analysis.",
     tags: ["ALM", "Banking", "Treasury"],
     file: "/LeverageEffectISP.pdf",
     fileLabel: "View / Download",
   },
+  {
+  title: "Automobile Pricing Model via Econometric Regression",
+  desc: "Econometric analysis of automobile prices using multivariate regression models to estimate the impact of technical characteristics, brand effects and market variables on pricing.",
+  tags: ["Econometrics", "Regression", "Pricing"],
+  file: "/RegressionePrAuto.pdf",
+  fileLabel: "View analysis",
+},
+
 ];
 
 
