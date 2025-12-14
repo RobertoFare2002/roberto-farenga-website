@@ -18,14 +18,14 @@ const PROJECTS = [
     fileLabel: "View / Download",
   },
   {
-    title: "Econometric Analisys - Leverage Effect on ISP via Econometric Analisys",
+    title: "Econometric Analisys - Leverage Effect on ISP",
      desc: "Empirical analysis of the leverage effect in equity markets, investigating the relationship between stock returns and volatility through econometric models, with application to Intesa Sanpaolo shares.",
   tags: ["Financial Econometrics", "Volatility", "Asset Pricing"],
     file: "/LeverageEffectISP.pdf",
     fileLabel: "View / Download",
   },
   {
-  title: "Econometric Analisys - Automobile Pricing Model via Econometric Regression",
+  title: "Econometric Analisys - Automobile Pricing Model",
   desc: "Econometric analysis of automobile prices using multivariate regression models to estimate the impact of technical characteristics, brand effects and market variables on pricing.",
   tags: ["Econometrics", "Regression", "Pricing"],
   file: "/RegressionePrAuto.pdf",
