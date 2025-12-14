@@ -22,7 +22,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${titleSerif.variable}`}>
+      <body className={`${inter.className} ${titleSerif.variable} bg-white text-slate-900`}>
         <div className="min-h-screen px-6 py-10">
           <Header />
           <div className="mt-10">{children}</div>
