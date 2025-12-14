@@ -24,3 +24,11 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+:root {
+  --accent: #1e293b; /* slate-800 */
+}
+
+.title-serif {
+  font-family: var(--font-title), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}

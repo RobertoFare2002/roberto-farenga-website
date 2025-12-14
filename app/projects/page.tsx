@@ -30,7 +30,8 @@ export default function ProjectsPage() {
       <div className="w-full max-w-6xl mx-auto px-6">
         {/* Header */}
         <section className="mt-12 max-w-2xl">
-          <h1 className="text-lg font-medium tracking-tight">Projects</h1>
+          <h1 className="title-serif text-lg font-semibold tracking-tight text-slate-900">
+            Projects</h1>
           <p className="mt-4 text-sm text-neutral-700">
             A selection of academic and practical projects focused on finance,
             valuation and data-driven analysis.

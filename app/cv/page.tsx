@@ -4,7 +4,8 @@ export default function CvPage() {
       <div className="w-full max-w-6xl mx-auto px-6">
         {/* Header */}
         <section className="mt-12 max-w-2xl">
-          <h1 className="text-lg font-medium tracking-tight">Curriculum Vitae</h1>
+          <h1 className="title-serif text-lg font-semibold tracking-tight text-slate-900">
+Curriculum Vitae</h1>
           <p className="mt-4 text-sm text-neutral-700">
             A concise overview of education, experience and skills.
           </p>
