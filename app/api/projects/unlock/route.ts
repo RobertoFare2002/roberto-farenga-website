@@ -15,13 +15,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false }, { status: 401 });
   }
 
-  const res = NextResponse.json({ ok: true });
-  res.cookies.set("projects_access", "1", {
-    httpOnly: true,
-    sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
-    path: "/",
-    maxAge: 60 * 60 * 24 * 30, // 30 giorni
-  });
-  return res;
+  // ✅ codice corretto, ma NON salviamo nulla
+  return NextResponse.json({ ok: true });
 }
