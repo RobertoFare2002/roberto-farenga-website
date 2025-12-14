@@ -27,5 +27,9 @@ body {
   font-family: var(--font-title), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
+/* Force light theme on all devices */
 html { color-scheme: light; }
-body { background: white; }
+body {
+  background: #ffffff !important;
+  color: #0f172a !important; /* slate-900 */
+}
