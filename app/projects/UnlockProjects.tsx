@@ -79,9 +79,22 @@ export default function UnlockProjects() {
     setLoading(false);
 
     if (!res.ok) {
-      setError("Invalid access code.");
-      return;
-    }
+  let msg = "Request failed.";
+  try {
+    const data = await res.json();
+    msg = data?.error || data?.message || msg;
+  } catch {
+    // ignore
+  }
+
+  if (res.status === 401) msg = "Invalid access code.";
+  if (res.status === 404) msg = "File not found (check filename in private_files).";
+  if (res.status === 500) msg = "Server error: missing env var or server misconfig.";
+
+  setError(msg);
+  return;
+}
+
 
     const blob = await res.blob();
     const url = URL.createObjectURL(blob);
