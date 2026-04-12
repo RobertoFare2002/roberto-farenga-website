@@ -10,7 +10,7 @@ export default function ContactPage() {
   return (
     <main>
       <div className="w-full max-w-6xl mx-auto px-6">
-        <section className="mt-12 max-w-2xl">
+        <section className="mt-6 sm:mt-12 max-w-2xl">
           <h1 className="title-serif text-lg font-semibold tracking-tight text-slate-900">
             Contact
           </h1>

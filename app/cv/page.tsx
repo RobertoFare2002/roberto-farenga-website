@@ -11,7 +11,7 @@ export default function CvPage() {
     <main>
       <div className="w-full max-w-6xl mx-auto px-6">
         {/* Header */}
-        <section className="mt-12 max-w-2xl">
+        <section className="mt-6 sm:mt-12 max-w-2xl">
           <h1 className="title-serif text-lg font-semibold tracking-tight text-slate-900">
             Curriculum Vitae
           </h1>
@@ -26,7 +26,7 @@ export default function CvPage() {
         </section>
 
         {/* Education */}
-        <section className="mt-14">
+        <section className="mt-10 sm:mt-14">
           <h2 className="text-[11px] tracking-widest font-semibold text-slate-400">
             EDUCATION
           </h2>
@@ -42,7 +42,7 @@ export default function CvPage() {
         </section>
 
         {/* Experience */}
-        <section className="mt-14">
+        <section className="mt-10 sm:mt-14">
           <h2 className="text-[11px] tracking-widest font-semibold text-slate-400">
             EXPERIENCE
           </h2>
@@ -64,7 +64,7 @@ export default function CvPage() {
         </section>
 
         {/* Skills */}
-        <section className="mt-14">
+        <section className="mt-10 sm:mt-14">
           <h2 className="text-[11px] tracking-widest font-semibold text-slate-400">
             SKILLS
           </h2>

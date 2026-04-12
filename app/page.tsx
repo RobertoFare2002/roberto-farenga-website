@@ -6,7 +6,7 @@ export default function Home() {
     <main>
       <div className="w-full max-w-6xl mx-auto px-6">
         {/* Intro */}
-        <section className="mt-20 text-center">
+        <section className="mt-8 sm:mt-16 text-center">
           <h1 className="title-serif text-xl font-semibold tracking-tight text-slate-900">
             Personal website
           </h1>
@@ -52,7 +52,7 @@ export default function Home() {
         </section>
 
         {/* Cards */}
-        <section className="mt-20 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <section className="mt-10 sm:mt-16 grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2">
           <div className="rounded-2xl border border-slate-200 p-6 transition-colors hover:border-slate-300 hover:bg-slate-50">
             <p className="text-[11px] tracking-wide font-semibold text-slate-900">
               PROJECTS

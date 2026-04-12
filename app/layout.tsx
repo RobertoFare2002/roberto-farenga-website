@@ -37,10 +37,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} ${titleSerif.variable} bg-white text-slate-900`}>
-        <div className="min-h-screen flex flex-col px-6 py-10">
+        <div className="min-h-screen flex flex-col px-4 sm:px-6 py-6 sm:py-10">
           <Header />
-          <div className="mt-10 flex-1">{children}</div>
-          <footer className="mt-24 border-t border-slate-200 pt-6 text-[11px] text-slate-500 w-full max-w-6xl mx-auto">
+          <div className="mt-4 sm:mt-8 flex-1">{children}</div>
+          <footer className="mt-16 sm:mt-24 border-t border-slate-200 pt-6 text-[11px] text-slate-500 w-full max-w-6xl mx-auto">
             © {new Date().getFullYear()} Roberto Farenga
           </footer>
         </div>

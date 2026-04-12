@@ -89,7 +89,7 @@ export default function UnlockProjects() {
   }
 
   return (
-    <section className="mt-12 max-w-3xl">
+    <section className="mt-6 sm:mt-12 max-w-3xl">
       <div className="flex items-start justify-between gap-4">
         <div>
           <h1 className="title-serif text-lg font-semibold tracking-tight text-slate-900">
