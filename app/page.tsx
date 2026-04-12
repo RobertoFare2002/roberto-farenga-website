@@ -4,85 +4,105 @@ import { CONTACT } from "@/app/lib/constants";
 export default function Home() {
   return (
     <main>
-      <div className="w-full max-w-6xl mx-auto px-6">
-        {/* Intro */}
-        <section className="mt-8 sm:mt-16 text-center">
-          <h1 className="title-serif text-xl font-semibold tracking-tight text-slate-900">
-            Personal website
-          </h1>
+      <div className="w-full max-w-2xl mx-auto px-2 sm:px-0">
 
-          <div className="mt-3 flex justify-center gap-6">
-            <a
-              className="text-xs underline text-slate-600 hover:text-slate-900"
-              href={`mailto:${CONTACT.email}`}
-            >
-              {CONTACT.email}
-            </a>
-            <a
-              className="text-xs underline text-slate-600 hover:text-slate-900"
-              href={CONTACT.linkedin}
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn
-            </a>
-          </div>
-
-          <p className="mx-auto mt-6 max-w-xl text-sm text-slate-700">
-            <span className="font-semibold text-slate-900">CV</span>,{" "}
-            <span className="font-semibold text-slate-900">selected projects</span>{" "}
-            and{" "}
-            <span className="font-semibold text-slate-900">research outputs</span>.
+        {/* Hero */}
+        <section className="mt-10 sm:mt-16">
+          <p className="text-[10px] tracking-[0.3em] font-semibold text-slate-400 uppercase">
+            Finance · Research · Analysis
           </p>
 
-          <div className="mt-8 flex justify-center gap-3">
+          <h1 className="title-serif mt-4 text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
+            Roberto<br />Farenga
+          </h1>
+
+          <p className="mt-3 text-sm text-slate-500">
+            MSc Banking &amp; Finance · Università Cattolica, Milan
+          </p>
+
+          <p className="mt-5 text-sm text-slate-700 leading-relaxed max-w-lg">
+            Finance student with experience in treasury and ALM at{" "}
+            <span className="font-medium text-slate-900">Intesa Sanpaolo</span> and
+            M&amp;A advisory at{" "}
+            <span className="font-medium text-slate-900">Epyon Vivida</span>.
+            Interested in corporate finance, financial econometrics and capital markets.
+          </p>
+
+          <div className="mt-7 flex flex-wrap gap-3">
             <a
               href="/cv.pdf"
-              className="rounded-2xl border border-slate-900 bg-slate-900 px-4 py-2 text-xs text-white hover:bg-slate-800"
+              className="rounded-full border border-slate-900 bg-slate-900 px-5 py-2.5 text-xs font-medium text-white hover:bg-slate-700 transition-colors"
             >
               Download CV
             </a>
             <Link
               href="/projects"
-              className="rounded-2xl border border-slate-200 px-4 py-2 text-xs text-slate-900 hover:border-slate-300 hover:bg-slate-50"
+              className="rounded-full border border-slate-200 px-5 py-2.5 text-xs font-medium text-slate-800 hover:border-slate-300 hover:bg-slate-50 transition-colors"
             >
-              Projects
+              View Projects →
             </Link>
           </div>
+
+          <div className="mt-6 flex gap-5">
+            <a
+              className="text-xs text-slate-400 hover:text-slate-700 transition-colors"
+              href={`mailto:${CONTACT.email}`}
+            >
+              {CONTACT.email}
+            </a>
+            <a
+              className="text-xs text-slate-400 hover:text-slate-700 transition-colors"
+              href={CONTACT.linkedin}
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn ↗
+            </a>
+          </div>
         </section>
+
+        {/* Divider */}
+        <div className="mt-14 sm:mt-20 border-t border-slate-100" />
 
         {/* Cards */}
-        <section className="mt-10 sm:mt-16 grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2">
-          <div className="rounded-2xl border border-slate-200 p-6 transition-colors hover:border-slate-300 hover:bg-slate-50">
-            <p className="text-[11px] tracking-wide font-semibold text-slate-900">
-              PROJECTS
+        <section className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <Link
+            href="/projects"
+            className="group rounded-2xl border border-slate-200 p-5 transition-all hover:border-slate-300 hover:shadow-sm"
+          >
+            <p className="text-[10px] tracking-widest font-semibold text-slate-400 uppercase">
+              Projects
             </p>
-            <p className="mt-3 text-sm text-slate-700 leading-relaxed">
-              A concise selection of work and deliverables.
+            <p className="mt-2 text-sm font-medium text-slate-900">
+              DCF, thesis &amp; econometrics
             </p>
-            <Link
-              href="/projects"
-              className="mt-4 inline-block text-xs underline text-slate-700 hover:text-slate-900"
-            >
+            <p className="mt-1.5 text-xs text-slate-500 leading-relaxed">
+              4 projects with downloadable files.
+            </p>
+            <p className="mt-4 text-xs text-slate-700 group-hover:text-slate-900 transition-colors">
               View →
-            </Link>
-          </div>
+            </p>
+          </Link>
 
-          <div className="rounded-2xl border border-slate-200 p-6 transition-colors hover:border-slate-300 hover:bg-slate-50">
-            <p className="text-[11px] tracking-wide font-semibold text-slate-900">
+          <Link
+            href="/cv"
+            className="group rounded-2xl border border-slate-200 p-5 transition-all hover:border-slate-300 hover:shadow-sm"
+          >
+            <p className="text-[10px] tracking-widest font-semibold text-slate-400 uppercase">
               CV
             </p>
-            <p className="mt-3 text-sm text-slate-700 leading-relaxed">
-              Education, experience and skills.
+            <p className="mt-2 text-sm font-medium text-slate-900">
+              Education &amp; experience
             </p>
-            <Link
-              href="/cv"
-              className="mt-4 inline-block text-xs underline text-slate-700 hover:text-slate-900"
-            >
+            <p className="mt-1.5 text-xs text-slate-500 leading-relaxed">
+              Università Cattolica · ISP · Epyon Vivida.
+            </p>
+            <p className="mt-4 text-xs text-slate-700 group-hover:text-slate-900 transition-colors">
               View →
-            </Link>
-          </div>
+            </p>
+          </Link>
         </section>
+
       </div>
     </main>
   );
