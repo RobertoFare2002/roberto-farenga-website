@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CONTACT } from "@/app/lib/constants";
 
 export default function Home() {
@@ -8,13 +9,28 @@ export default function Home() {
 
         {/* Hero */}
         <section className="mt-10 sm:mt-16">
-          <p className="text-[10px] tracking-[0.3em] font-semibold text-slate-400 uppercase">
-            Finance · Research · Analysis
-          </p>
 
-          <h1 className="title-serif mt-4 text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
-            Roberto<br />Farenga
-          </h1>
+          {/* Photo + name row */}
+          <div className="flex items-center gap-5">
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border border-slate-200 bg-slate-100 shrink-0">
+              <Image
+                src="/profile.jpg"
+                alt="Roberto Farenga"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+
+            <div>
+              <p className="text-[10px] tracking-[0.3em] font-semibold text-slate-400 uppercase">
+                Finance · Research · Analysis
+              </p>
+              <h1 className="title-serif mt-1.5 text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 leading-tight">
+                Roberto Farenga
+              </h1>
+            </div>
+          </div>
 
           <p className="mt-3 text-sm text-slate-500">
             MSc Banking &amp; Finance · Università Cattolica, Milan
