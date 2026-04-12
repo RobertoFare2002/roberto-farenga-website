@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
 }
 
 @theme inline {
@@ -10,14 +10,9 @@
   --color-foreground: var(--foreground);
 }
 
-
 body {
   background: var(--background);
   color: var(--foreground);
-}
-
-:root {
-  --accent: #1e293b; /* slate-800 */
 }
 
 .title-serif {
@@ -28,5 +23,43 @@ body {
 html { color-scheme: light; }
 body {
   background: #ffffff !important;
-  color: #0f172a !important; /* slate-900 */
+  color: #0f172a !important;
+}
+
+/* ── Animations ─────────────────────────────── */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes expandWidth {
+  from { width: 0; }
+  to   { width: 2rem; }
+}
+
+.anim-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.anim-fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.anim-line {
+  width: 0;
+  animation: expandWidth 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
