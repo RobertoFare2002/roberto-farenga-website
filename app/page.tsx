@@ -1,68 +1,59 @@
 import Link from "next/link";
-
-const CONTACT = {
-  email: "robertofarenga.contact@gmail.com",
-  linkedin: "https://www.linkedin.com/in/roberto-farenga-392a85282",
-};
+import { CONTACT } from "@/app/lib/constants";
 
 export default function Home() {
   return (
     <main>
       <div className="w-full max-w-6xl mx-auto px-6">
-        {/* Top contacts */}
-        
-
         {/* Intro */}
         <section className="mt-20 text-center">
-  <h1 className="title-serif text-xl font-semibold tracking-tight text-slate-900">
-    Personal website
-  </h1>
+          <h1 className="title-serif text-xl font-semibold tracking-tight text-slate-900">
+            Personal website
+          </h1>
 
-  <div className="mt-3 flex justify-center gap-6">
-    <a
-      className="text-xs underline text-slate-600 hover:text-slate-900"
-      href={`mailto:${CONTACT.email}`}
-    >
-      {CONTACT.email}
-    </a>
-    <a
-      className="text-xs underline text-slate-600 hover:text-slate-900"
-      href={CONTACT.linkedin}
-      target="_blank"
-      rel="noreferrer"
-    >
-      LinkedIn
-    </a>
-  </div>
+          <div className="mt-3 flex justify-center gap-6">
+            <a
+              className="text-xs underline text-slate-600 hover:text-slate-900"
+              href={`mailto:${CONTACT.email}`}
+            >
+              {CONTACT.email}
+            </a>
+            <a
+              className="text-xs underline text-slate-600 hover:text-slate-900"
+              href={CONTACT.linkedin}
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </a>
+          </div>
 
-  <p className="mx-auto mt-6 max-w-xl text-sm text-slate-700">
-    <span className="font-semibold text-slate-900">CV</span>,{" "}
-    <span className="font-semibold text-slate-900">selected projects</span>{" "}
-    and{" "}
-    <span className="font-semibold text-slate-900">research outputs</span>.
-  </p>
+          <p className="mx-auto mt-6 max-w-xl text-sm text-slate-700">
+            <span className="font-semibold text-slate-900">CV</span>,{" "}
+            <span className="font-semibold text-slate-900">selected projects</span>{" "}
+            and{" "}
+            <span className="font-semibold text-slate-900">research outputs</span>.
+          </p>
 
-  <div className="mt-8 flex justify-center gap-3">
-    <a
-      href="/cv.pdf"
-      className="rounded-2xl border border-slate-900 bg-slate-900 px-4 py-2 text-xs text-white hover:bg-slate-800"
-    >
-      Download CV
-    </a>
-
-    <Link
-      href="/projects"
-      className="rounded-2xl border border-slate-200 px-4 py-2 text-xs text-slate-900 hover:border-slate-300 hover:bg-slate-50"
-    >
-      Projects
-    </Link>
-  </div>
-</section>
-
+          <div className="mt-8 flex justify-center gap-3">
+            <a
+              href="/cv.pdf"
+              className="rounded-2xl border border-slate-900 bg-slate-900 px-4 py-2 text-xs text-white hover:bg-slate-800"
+            >
+              Download CV
+            </a>
+            <Link
+              href="/projects"
+              className="rounded-2xl border border-slate-200 px-4 py-2 text-xs text-slate-900 hover:border-slate-300 hover:bg-slate-50"
+            >
+              Projects
+            </Link>
+          </div>
+        </section>
 
         {/* Cards */}
         <section className="mt-20 grid grid-cols-1 gap-6 sm:grid-cols-2">
-          <div className="rounded-2xl border border-slate-200 p-6 transition-colors hover:border-slate-300">
+          <div className="rounded-2xl border border-slate-200 p-6 transition-colors hover:border-slate-300 hover:bg-slate-50">
             <p className="text-[11px] tracking-wide font-semibold text-slate-900">
               PROJECTS
             </p>
@@ -77,13 +68,21 @@ export default function Home() {
             </Link>
           </div>
 
-          
+          <div className="rounded-2xl border border-slate-200 p-6 transition-colors hover:border-slate-300 hover:bg-slate-50">
+            <p className="text-[11px] tracking-wide font-semibold text-slate-900">
+              CV
+            </p>
+            <p className="mt-3 text-sm text-slate-700 leading-relaxed">
+              Education, experience and skills.
+            </p>
+            <Link
+              href="/cv"
+              className="mt-4 inline-block text-xs underline text-slate-700 hover:text-slate-900"
+            >
+              View →
+            </Link>
+          </div>
         </section>
-
-        {/* Footer */}
-        <footer className="mt-24 border-t border-slate-200 pt-6 text-[11px] text-slate-500">
-          © {new Date().getFullYear()} Roberto Farenga
-        </footer>
       </div>
     </main>
   );

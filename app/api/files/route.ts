@@ -1,16 +1,23 @@
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 import path from "path";
 import fs from "fs/promises";
 
 export async function POST(req: Request) {
-  const { file, code } = await req.json();
-
   const expected = process.env.PROJECTS_ACCESS_CODE;
   if (!expected) {
     return NextResponse.json({ ok: false, error: "Missing env var" }, { status: 500 });
   }
 
-  if (code !== expected) {
+  // Accept either a valid session cookie or a code in the body
+  const cookieStore = await cookies();
+  const sessionToken = cookieStore.get("projects_access");
+  const cookieAuth = sessionToken?.value === expected;
+
+  const body = await req.json();
+  const { file, code } = body;
+
+  if (!cookieAuth && code !== expected) {
     return NextResponse.json({ ok: false }, { status: 401 });
   }
 
@@ -18,7 +25,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false }, { status: 400 });
   }
 
-  // ✅ Whitelist semplice: solo pdf, niente path traversal
+  // Whitelist: only pdf, no path traversal
   if (!/^[a-zA-Z0-9._-]+\.pdf$/.test(file)) {
     return NextResponse.json({ ok: false }, { status: 400 });
   }
@@ -27,11 +34,9 @@ export async function POST(req: Request) {
 
   try {
     const data = await fs.readFile(filePath);
-
     return new NextResponse(data, {
       headers: {
         "Content-Type": "application/pdf",
-        // inline = apre in tab; attachment = forza download
         "Content-Disposition": `inline; filename="${file}"`,
       },
     });

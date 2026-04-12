@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+import { EDUCATION, EXPERIENCE, SKILLS } from "@/app/lib/cv-data";
+
+export const metadata: Metadata = {
+  title: "CV",
+  description: "Education, experience and skills of Roberto Farenga.",
+};
+
 export default function CvPage() {
   return (
     <main>
@@ -5,16 +13,13 @@ export default function CvPage() {
         {/* Header */}
         <section className="mt-12 max-w-2xl">
           <h1 className="title-serif text-lg font-semibold tracking-tight text-slate-900">
-Curriculum Vitae</h1>
+            Curriculum Vitae
+          </h1>
           <p className="mt-4 text-sm text-neutral-700">
             A concise overview of education, experience and skills.
           </p>
-
           <div className="mt-6">
-            <a
-              href="/cv.pdf"
-              className="text-xs underline text-neutral-700"
-            >
+            <a href="/cv.pdf" className="text-xs underline text-neutral-700 hover:text-slate-900 transition-colors">
               Download PDF version →
             </a>
           </div>
@@ -22,104 +27,62 @@ Curriculum Vitae</h1>
 
         {/* Education */}
         <section className="mt-14">
-          <h2 className="text-sm font-medium">Education</h2>
-
-          <div className="mt-6 border-b pb-6">
-            <p className="text-sm font-medium">
-              MSc Banking & Finance
-            </p>
-            <p className="mt-1 text-sm text-neutral-700">
-              Università Cattolica del Sacro Cuore, Milan
-            </p>
-            <p className="mt-1 text-[11px] text-neutral-500">
-              2024 – Present
-            </p>
-          </div>
-
-          <div className="mt-6 border-b pb-6">
-            <p className="text-sm font-medium">
-              BSc Economics & Management
-            </p>
-            <p className="mt-1 text-sm text-neutral-700">
-              Università degli Studi di Milano
-            </p>
-            <p className="mt-1 text-[11px] text-neutral-500">
-              2021 – 2024
-            </p>
+          <h2 className="text-[11px] tracking-widest font-semibold text-slate-400">
+            EDUCATION
+          </h2>
+          <div className="mt-4 space-y-0">
+            {EDUCATION.map((item) => (
+              <div key={item.degree} className="border-b py-6">
+                <p className="text-sm font-medium text-slate-900">{item.degree}</p>
+                <p className="mt-1 text-sm text-neutral-700">{item.school}</p>
+                <p className="mt-1 text-[11px] text-neutral-400">{item.period}</p>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* Experience */}
         <section className="mt-14">
-          <h2 className="text-sm font-medium">Experience</h2>
-
-          <div className="mt-6 border-b pb-6">
-            <p className="text-sm font-medium">
-              Intesa Sanpaolo — Treasury / Asset Liability Management
-            </p>
-            <p className="mt-1 text-[11px] text-neutral-500">
-              Internship • Milan
-            </p>
-
-            <ul className="mt-3 space-y-2 text-sm text-neutral-700 list-disc pl-4">
-              <li>
-                Support to treasury and ALM activities within a banking environment.
-              </li>
-              <li>
-                Analysis of balance sheet structure, funding and liquidity metrics.
-              </li>
-              <li>
-                Exposure to large-scale financing transactions and internal reporting.
-              </li>
-            </ul>
+          <h2 className="text-[11px] tracking-widest font-semibold text-slate-400">
+            EXPERIENCE
+          </h2>
+          <div className="mt-4 space-y-0">
+            {EXPERIENCE.map((item) => (
+              <div key={item.company} className="border-b py-6">
+                <p className="text-sm font-medium text-slate-900">
+                  {item.company} — {item.role}
+                </p>
+                <p className="mt-1 text-[11px] text-neutral-400">{item.period}</p>
+                <ul className="mt-3 space-y-2 text-sm text-neutral-700 list-disc pl-4">
+                  {item.bullets.map((b) => (
+                    <li key={b}>{b}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* Skills */}
         <section className="mt-14">
-          <h2 className="text-sm font-medium">Skills</h2>
-
+          <h2 className="text-[11px] tracking-widest font-semibold text-slate-400">
+            SKILLS
+          </h2>
           <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
-            <div>
-              <p className="text-[11px] text-neutral-500 tracking-wide">
-                FINANCE
-              </p>
-              <ul className="mt-3 space-y-1 text-sm text-neutral-700">
-                <li>DCF Valuation</li>
-                <li>Multiples</li>
-                <li>Corporate Finance</li>
-                <li>Banking & ALM</li>
-              </ul>
-            </div>
-
-            <div>
-              <p className="text-[11px] text-neutral-500 tracking-wide">
-                TOOLS
-              </p>
-              <ul className="mt-3 space-y-1 text-sm text-neutral-700">
-                <li>Excel</li>
-                <li>PowerPoint</li>
-                <li>Bloomberg Terminal</li>
-                <li>Python, R</li>
-              </ul>
-            </div>
-
-            <div>
-              <p className="text-[11px] text-neutral-500 tracking-wide">
-                LANGUAGES
-              </p>
-              <ul className="mt-3 space-y-1 text-sm text-neutral-700">
-                <li>Italian — Native</li>
-                <li>English — Fluent</li>
-              </ul>
-            </div>
+            {Object.entries(SKILLS).map(([category, items]) => (
+              <div key={category}>
+                <p className="text-[11px] text-neutral-400 tracking-wide font-medium">
+                  {category.toUpperCase()}
+                </p>
+                <ul className="mt-3 space-y-1 text-sm text-neutral-700">
+                  {items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </section>
-
-        {/* Footer */}
-        <footer className="mt-24 border-t pt-6 text-[11px] text-neutral-500">
-          © {new Date().getFullYear()} Roberto Farenga
-        </footer>
       </div>
     </main>
   );

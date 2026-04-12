@@ -13,8 +13,22 @@ const titleSerif = Libre_Baskerville({
 });
 
 export const metadata: Metadata = {
-  title: "Roberto Farenga",
-  description: "CV • Projects • Research",
+  title: {
+    default: "Roberto Farenga",
+    template: "%s | Roberto Farenga",
+  },
+  description: "CV, selected projects and research outputs by Roberto Farenga.",
+  openGraph: {
+    title: "Roberto Farenga",
+    description: "CV, selected projects and research outputs.",
+    type: "website",
+    locale: "en_GB",
+  },
+  twitter: {
+    card: "summary",
+    title: "Roberto Farenga",
+    description: "CV, selected projects and research outputs.",
+  },
 };
 
 export default function RootLayout({
@@ -23,9 +37,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} ${titleSerif.variable} bg-white text-slate-900`}>
-        <div className="min-h-screen px-6 py-10">
+        <div className="min-h-screen flex flex-col px-6 py-10">
           <Header />
-          <div className="mt-10">{children}</div>
+          <div className="mt-10 flex-1">{children}</div>
+          <footer className="mt-24 border-t border-slate-200 pt-6 text-[11px] text-slate-500 w-full max-w-6xl mx-auto">
+            © {new Date().getFullYear()} Roberto Farenga
+          </footer>
         </div>
       </body>
     </html>
