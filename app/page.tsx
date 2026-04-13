@@ -66,29 +66,29 @@ export default function Home() {
         {/* Content */}
         <div className={`relative z-10 w-full px-5 sm:px-16 pb-14 sm:pb-24 ${hasPhoto ? "sm:max-w-[55%]" : "max-w-3xl"}`}>
 
-          {/* Badge */}
-          <div
-            className="anim-fade-up flex items-center gap-2 mb-6"
-            style={{ animationDelay: "0ms" }}
-          >
-            <div className="h-px w-8 bg-[#c9a96e] anim-line" style={{ animationDelay: "0ms" }} />
-            <span className="text-[10px] tracking-[0.35em] text-[#c9a96e] font-semibold uppercase">
-              Finance · Research · Analysis
-            </span>
-          </div>
-
           {/* Name */}
           <h1
             className="anim-fade-up title-serif text-5xl sm:text-7xl font-bold text-white leading-[1.05] tracking-tight"
-            style={{ animationDelay: "100ms" }}
+            style={{ animationDelay: "0ms" }}
           >
             Roberto<br />Farenga
           </h1>
 
+          {/* Badge — below name, always readable */}
+          <div
+            className="anim-fade-up mt-5 inline-flex items-center gap-2.5"
+            style={{ animationDelay: "100ms" }}
+          >
+            <div className="h-px w-6 bg-[#c9a96e]" />
+            <span className="rounded-full bg-[#c9a96e]/10 border border-[#c9a96e]/30 px-3 py-1 text-[10px] tracking-[0.25em] text-[#c9a96e] font-semibold uppercase">
+              Finance · Research · Analysis
+            </span>
+          </div>
+
           {/* Role */}
           <p
-            className="anim-fade-up mt-5 text-sm text-slate-400 tracking-wide"
-            style={{ animationDelay: "200ms" }}
+            className="anim-fade-up mt-4 text-sm text-slate-400 tracking-wide"
+            style={{ animationDelay: "180ms" }}
           >
             MSc Banking &amp; Finance · Università Cattolica, Milan
           </p>
@@ -96,7 +96,7 @@ export default function Home() {
           {/* Bio */}
           <p
             className="anim-fade-up mt-5 text-sm text-slate-300 leading-relaxed max-w-md"
-            style={{ animationDelay: "280ms" }}
+            style={{ animationDelay: "260ms" }}
           >
             Finance student with hands-on experience in treasury and ALM at{" "}
             <span className="text-white font-medium">Intesa Sanpaolo</span> and
@@ -108,7 +108,7 @@ export default function Home() {
           {/* CTAs */}
           <div
             className="anim-fade-up mt-9 flex flex-wrap gap-3"
-            style={{ animationDelay: "360ms" }}
+            style={{ animationDelay: "340ms" }}
           >
             <a
               href="/cv.pdf"
