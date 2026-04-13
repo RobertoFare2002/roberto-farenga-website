@@ -50,15 +50,16 @@ export default function Home() {
 
         {/* Photo — mobile top */}
         {hasPhoto && (
-          <div className="absolute top-0 left-0 right-0 h-64 sm:hidden">
+          <div className="absolute top-0 left-0 right-0 h-[55vh] sm:hidden">
             <Image
               src="/profile.jpg"
               alt="Roberto Farenga"
               fill
-              className="object-cover object-top"
+              className="object-cover object-[center_top]"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0f1c]/60 to-[#0a0f1c]" />
+            {/* Strong fade at bottom so text is readable */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent from-30% via-[#0a0f1c]/70 via-70% to-[#0a0f1c]" />
           </div>
         )}
 
