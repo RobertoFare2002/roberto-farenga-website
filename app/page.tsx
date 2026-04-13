@@ -67,7 +67,7 @@ export default function Home() {
 
           {/* Name — leggermente trasparente per non coprire */}
           <h1
-            className="anim-fade-up title-serif text-5xl sm:text-7xl font-bold text-white/90 leading-[1.05] tracking-tight"
+            className="anim-fade-up title-serif text-4xl sm:text-7xl font-bold text-white/70 leading-[1.05] tracking-tight"
             style={{ animationDelay: "0ms" }}
           >
             Roberto<br />Farenga
