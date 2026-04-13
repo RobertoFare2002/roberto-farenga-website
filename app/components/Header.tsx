@@ -51,9 +51,9 @@ export default function Header() {
         </button>
       </header>
 
-      {/* Mobile dropdown */}
+      {/* Mobile dropdown — fixed per uscire dal padding del layout */}
       {menuOpen && (
-        <nav className="absolute top-full left-0 right-0 z-50 bg-[#0a0f1c] border-b border-white/[0.07] py-5 flex flex-col gap-5 sm:hidden">
+        <nav className="fixed inset-x-0 top-[57px] z-50 bg-[#0a0f1c] border-b border-white/[0.07] px-5 py-5 flex flex-col gap-5 sm:hidden">
           {NAV_LINKS.map(({ href, label }) => (
             <Link
               key={href}

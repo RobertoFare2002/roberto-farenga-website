@@ -12,8 +12,7 @@ export default function Home() {
   return (
     <main>
       {/* ── HERO ─────────────────────────────────────────────── */}
-      {/* min-h-screen su mobile → contenuto scende sotto la faccia */}
-      <section className="relative min-h-screen sm:min-h-[88vh] flex items-end overflow-hidden">
+      <section className="relative sm:min-h-[88vh] flex flex-col sm:flex-row sm:items-end overflow-hidden">
 
         {/* Dark base */}
         <div className="absolute inset-0 bg-[#0a0f1c]" />
@@ -34,8 +33,8 @@ export default function Home() {
         {/* Photo — full background on mobile, right half on desktop */}
         {hasPhoto && (
           <>
-            {/* Mobile: full-screen photo */}
-            <div className="absolute inset-0 sm:hidden">
+            {/* Mobile: fixed-height photo */}
+            <div className="absolute top-0 left-0 right-0 h-[55vh] sm:hidden">
               <Image
                 src="/profile.jpg"
                 alt="Roberto Farenga"
@@ -63,7 +62,10 @@ export default function Home() {
         )}
 
         {/* Content */}
-        <div className={`relative z-10 w-full px-5 sm:px-16 pb-12 sm:pb-24 ${hasPhoto ? "sm:max-w-[55%]" : "max-w-3xl"}`}>
+        {/* Mobile spacer: spinge il testo sotto il mento (foto h-[55vh], mento ~40%) */}
+        <div className="h-[38vh] sm:hidden shrink-0" />
+
+        <div className={`relative z-10 w-full px-5 sm:px-16 pb-10 sm:pb-24 ${hasPhoto ? "sm:max-w-[55%]" : "max-w-3xl"}`}>
 
           {/* Name — leggermente trasparente per non coprire */}
           <h1
