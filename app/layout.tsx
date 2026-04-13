@@ -5,7 +5,6 @@ import { Inter, Libre_Baskerville } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// Serif “finance” per TITOLI
 const titleSerif = Libre_Baskerville({
   subsets: ["latin"],
   weight: ["400", "700"],
@@ -36,11 +35,18 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${titleSerif.variable} bg-white text-slate-900`}>
-        <div className="min-h-screen flex flex-col px-4 sm:px-6 py-6 sm:py-10">
-          <Header />
-          <div className="mt-4 sm:mt-8 flex-1">{children}</div>
-          <footer className="mt-16 sm:mt-24 border-t border-slate-200 pt-6 text-[11px] text-slate-500 w-full max-w-6xl mx-auto">
+      <body className={`${inter.className} ${titleSerif.variable}`}>
+        <div className="min-h-screen flex flex-col bg-[#0a0f1c]">
+          {/* Header — own padding */}
+          <div className="px-5 sm:px-10 py-4 sm:py-5">
+            <Header />
+          </div>
+
+          {/* Page content — no outer padding (pages handle their own) */}
+          <div className="flex-1">{children}</div>
+
+          {/* Footer */}
+          <footer className="px-5 sm:px-10 py-8 mt-16 border-t border-white/[0.07] text-[11px] text-slate-600">
             © {new Date().getFullYear()} Roberto Farenga
           </footer>
         </div>

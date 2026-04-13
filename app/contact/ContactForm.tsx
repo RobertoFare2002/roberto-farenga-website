@@ -4,6 +4,9 @@ import { useState } from "react";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
+const inputCls =
+  "w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white outline-none focus:border-[#c9a96e]/50 transition-colors placeholder:text-slate-600";
+
 export default function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -15,25 +18,20 @@ export default function ContactForm() {
     e.preventDefault();
     setStatus("sending");
     setErrorMsg("");
-
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, message }),
       });
-
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
         setErrorMsg(data.error || "Something went wrong.");
         setStatus("error");
         return;
       }
-
       setStatus("sent");
-      setName("");
-      setEmail("");
-      setMessage("");
+      setName(""); setEmail(""); setMessage("");
     } catch {
       setErrorMsg("Network error. Try again.");
       setStatus("error");
@@ -42,13 +40,13 @@ export default function ContactForm() {
 
   if (status === "sent") {
     return (
-      <div className="rounded-2xl border border-emerald-200 bg-emerald-50 px-6 py-8 text-center">
-        <p className="text-sm font-medium text-emerald-800">Message sent.</p>
-        <p className="mt-1 text-xs text-emerald-600">I&apos;ll get back to you soon.</p>
+      <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/10 px-6 py-10 text-center">
+        <p className="text-sm font-semibold text-emerald-400">Message sent.</p>
+        <p className="mt-1.5 text-xs text-emerald-600">I&apos;ll get back to you soon.</p>
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="mt-4 text-xs text-emerald-700 underline underline-offset-2 hover:text-emerald-900 transition-colors"
+          className="mt-5 text-xs text-emerald-500 hover:text-emerald-300 underline underline-offset-2 transition-colors"
         >
           Send another
         </button>
@@ -60,55 +58,44 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
-          <label className="block text-xs font-medium text-slate-600 mb-1.5">
-            Name
-          </label>
+          <label className="block text-xs font-medium text-slate-500 mb-2">Name</label>
           <input
-            type="text"
-            required
-            value={name}
+            type="text" required value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Your name"
-            className="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-sm outline-none focus:border-slate-400 transition-colors placeholder:text-slate-300"
+            className={inputCls}
           />
         </div>
         <div>
-          <label className="block text-xs font-medium text-slate-600 mb-1.5">
-            Email
-          </label>
+          <label className="block text-xs font-medium text-slate-500 mb-2">Email</label>
           <input
-            type="email"
-            required
-            value={email}
+            type="email" required value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="your@email.com"
-            className="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-sm outline-none focus:border-slate-400 transition-colors placeholder:text-slate-300"
+            className={inputCls}
           />
         </div>
       </div>
 
       <div>
-        <label className="block text-xs font-medium text-slate-600 mb-1.5">
-          Message
-        </label>
+        <label className="block text-xs font-medium text-slate-500 mb-2">Message</label>
         <textarea
-          required
-          value={message}
+          required value={message}
           onChange={(e) => setMessage(e.target.value)}
-          placeholder="Write your message here…"
+          placeholder="Write your message…"
           rows={5}
-          className="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-sm outline-none focus:border-slate-400 transition-colors resize-none placeholder:text-slate-300"
+          className={`${inputCls} resize-none`}
         />
       </div>
 
       {status === "error" && (
-        <p className="text-xs text-red-500">{errorMsg}</p>
+        <p className="text-xs text-red-400">{errorMsg}</p>
       )}
 
       <button
         type="submit"
         disabled={status === "sending"}
-        className="rounded-full border border-slate-900 bg-slate-900 px-6 py-2.5 text-xs font-medium text-white hover:bg-slate-700 disabled:opacity-50 transition-colors"
+        className="rounded-full bg-[#c9a96e] px-7 py-3 text-xs font-semibold text-[#0a0f1c] hover:bg-[#d4b47e] disabled:opacity-50 active:scale-95 transition-all"
       >
         {status === "sending" ? "Sending…" : "Send message"}
       </button>

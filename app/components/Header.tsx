@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const NAV_LINKS = [
-  { href: "/projects", label: "PROJECTS" },
-  { href: "/cv", label: "CV" },
-  { href: "/contact", label: "CONTACT" },
+  { href: "/projects", label: "Projects" },
+  { href: "/cv",       label: "CV" },
+  { href: "/contact",  label: "Contact" },
 ];
 
 export default function Header() {
@@ -16,23 +16,23 @@ export default function Header() {
 
   return (
     <div className="relative">
-      <header className="flex items-center justify-between border-b border-slate-200 pb-3">
+      <header className="flex items-center justify-between border-b border-white/[0.07] pb-4">
         <Link
           href="/"
-          className="text-xs font-bold tracking-[0.35em] text-slate-900 hover:opacity-70 transition-opacity"
+          className="text-xs font-bold tracking-[0.3em] text-white/90 hover:text-white transition-colors"
         >
           ROBERTO FARENGA
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden sm:flex gap-5 text-xs text-neutral-700">
+        <nav className="hidden sm:flex gap-7 text-xs text-slate-400">
           {NAV_LINKS.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
-              className={`transition-colors hover:text-slate-900 ${
+              className={`transition-colors hover:text-white ${
                 pathname === href
-                  ? "text-slate-900 underline underline-offset-4"
+                  ? "text-[#c9a96e]"
                   : ""
               }`}
             >
@@ -41,9 +41,9 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Mobile hamburger */}
+        {/* Mobile burger */}
         <button
-          className="sm:hidden text-xs text-slate-700 hover:text-slate-900 transition-colors px-1"
+          className="sm:hidden text-slate-400 hover:text-white transition-colors text-sm px-1"
           onClick={() => setMenuOpen((o) => !o)}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
         >
@@ -53,16 +53,14 @@ export default function Header() {
 
       {/* Mobile dropdown */}
       {menuOpen && (
-        <nav className="absolute top-full left-0 right-0 z-40 bg-white border-b border-slate-200 py-4 flex flex-col gap-4 sm:hidden">
+        <nav className="absolute top-full left-0 right-0 z-50 bg-[#0a0f1c] border-b border-white/[0.07] py-5 flex flex-col gap-5 sm:hidden">
           {NAV_LINKS.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
               onClick={() => setMenuOpen(false)}
-              className={`text-xs px-1 transition-colors hover:text-slate-900 ${
-                pathname === href
-                  ? "text-slate-900 font-semibold"
-                  : "text-neutral-700"
+              className={`text-sm transition-colors hover:text-white ${
+                pathname === href ? "text-[#c9a96e] font-medium" : "text-slate-400"
               }`}
             >
               {label}

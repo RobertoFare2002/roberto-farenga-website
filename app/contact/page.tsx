@@ -9,24 +9,23 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main>
-      <div className="w-full max-w-2xl mx-auto px-2 sm:px-0">
-        <section className="mt-6 sm:mt-12">
-          <p className="text-[10px] tracking-[0.3em] font-semibold text-slate-400 uppercase">
+    <main className="px-5 sm:px-16 pb-16">
+      <div className="max-w-xl mx-auto">
+        <section className="mt-10 sm:mt-14">
+          <p className="text-[10px] tracking-[0.35em] text-[#c9a96e] font-semibold uppercase">
             Get in touch
           </p>
-          <h1 className="title-serif mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+          <h1 className="title-serif mt-3 text-4xl sm:text-5xl font-bold text-white tracking-tight">
             Contact
           </h1>
-          <p className="mt-4 text-sm text-slate-600 leading-relaxed">
-            Feel free to reach out for collaborations, opportunities or just to connect.
+          <p className="mt-4 text-sm text-slate-400 leading-relaxed">
+            Open to opportunities, collaborations and connections.
           </p>
 
-          {/* Direct links */}
-          <div className="mt-6 flex gap-6 text-sm text-slate-600">
+          <div className="mt-6 flex gap-6">
             <a
               href={`mailto:${CONTACT.email}`}
-              className="hover:text-slate-900 transition-colors underline underline-offset-2"
+              className="text-xs text-slate-500 hover:text-[#c9a96e] transition-colors underline underline-offset-2"
             >
               {CONTACT.email}
             </a>
@@ -34,19 +33,17 @@ export default function ContactPage() {
               href={CONTACT.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="hover:text-slate-900 transition-colors underline underline-offset-2"
+              className="text-xs text-slate-500 hover:text-[#c9a96e] transition-colors underline underline-offset-2"
             >
               LinkedIn ↗
             </a>
           </div>
 
-          {/* Divider */}
-          <div className="mt-10 border-t border-slate-100" />
+          <div className="mt-10 border-t border-white/[0.07]" />
 
-          {/* Form */}
           <div className="mt-8">
-            <p className="text-xs font-medium text-slate-500 mb-6 uppercase tracking-widest">
-              Or send a message
+            <p className="text-[10px] tracking-widest font-semibold text-slate-600 uppercase mb-6">
+              Send a message
             </p>
             <ContactForm />
           </div>

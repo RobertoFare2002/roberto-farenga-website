@@ -1,42 +1,38 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
+  --bg:        #0a0f1c;
+  --bg-card:   #111827;
+  --border:    rgba(255, 255, 255, 0.08);
+  --text-1:    #f1f5f9;
+  --text-2:    #94a3b8;
+  --text-3:    #475569;
+  --accent:    #c9a96e;
+  --accent-h:  #d4b47e;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--bg);
+  --color-foreground: var(--text-1);
 }
 
+html { color-scheme: dark; }
+
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg) !important;
+  color: var(--text-1) !important;
+  -webkit-font-smoothing: antialiased;
 }
 
 .title-serif {
-  font-family: var(--font-title), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-}
-
-/* Force light theme on all devices */
-html { color-scheme: light; }
-body {
-  background: #ffffff !important;
-  color: #0f172a !important;
+  font-family: var(--font-title), ui-serif, Georgia, Cambria, serif;
 }
 
 /* ── Animations ─────────────────────────────── */
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
@@ -44,22 +40,22 @@ body {
   to   { opacity: 1; }
 }
 
-@keyframes expandWidth {
-  from { width: 0; }
-  to   { width: 2rem; }
+@keyframes slideRight {
+  from { width: 0; opacity: 0; }
+  to   { width: 3rem; opacity: 1; }
 }
 
 .anim-fade-up {
   opacity: 0;
-  animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .anim-fade-in {
   opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards;
+  animation: fadeIn 0.6s ease-out forwards;
 }
 
 .anim-line {
   width: 0;
-  animation: expandWidth 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: slideRight 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
